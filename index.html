@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ប្រព័ន្ធសិក្សាកុំព្យូទ័រ | Computer Learning System</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;500;600;700;800&family=Battambang:wght@400;700&display=swap');
+*{box-sizing:border-box}body{margin:0;font-family:'Noto Sans Khmer',sans-serif;background:#f5f7fb;color:#172033}
+:root{--blue:#1261e8;--navy:#0d1b3e;--cyan:#16b9e9;--light:#eef5ff;--gold:#e7ad38}
+.top{background:#071634;color:#fff;text-align:center;padding:9px;font-family:'Battambang',sans-serif;font-size:15px}.top b{display:block;font-size:19px}.top span{opacity:.9}
+nav{height:72px;background:#fff;border-bottom:1px solid #e7ebf2;display:flex;align-items:center;justify-content:space-between;padding:0 6%;position:sticky;top:0;z-index:20}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy);cursor:pointer}.logoIcon{width:43px;height:43px;border-radius:13px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:#fff;font-size:23px}
+.links{display:flex;gap:7px}.links button{border:0;background:transparent;padding:11px 12px;border-radius:10px;color:#44506a;font-family:inherit;cursor:pointer}.links button:hover,.links button.active{background:var(--light);color:var(--blue);font-weight:700}
+.navBtns{display:flex;gap:8px}.btn{border:0;border-radius:11px;padding:10px 15px;font-family:inherit;cursor:pointer;font-weight:700}.outline{background:#fff;border:1px solid #d7dfeb}.primary{background:var(--blue);color:#fff}.gold{background:var(--gold);color:#fff}
+.page{display:none}.page.active{display:block}
+.hero{padding:65px 7%;background:radial-gradient(circle at 80% 20%,#dff5ff,transparent 32%),linear-gradient(135deg,#edf5ff,#fff)}
+.heroGrid{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}.tag{display:inline-block;background:#dceaff;color:#1261e8;padding:7px 13px;border-radius:30px;font-weight:700}.hero h1{font-size:42px;line-height:1.25;margin:17px 0 14px;color:#0c1c40}.hero h1 span{color:var(--blue)}.hero p{font-size:17px;line-height:1.9;color:#59657b}.actions{display:flex;gap:12px;margin-top:25px;flex-wrap:wrap}
+.dashboardCard{background:#fff;border:1px solid #e2eaf5;border-radius:24px;padding:25px;box-shadow:0 18px 50px #143d7b16}.screen{background:#091b42;border-radius:18px;padding:18px;color:#fff}.screenTop{display:flex;justify-content:space-between;margin-bottom:16px}.bar{height:8px;background:#274273;border-radius:20px;margin:8px 0}.bar i{display:block;width:72%;height:100%;background:#22b7ec;border-radius:20px}.miniGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.mini{background:#102b59;padding:13px;border-radius:12px;text-align:center}.mini b{font-size:21px;display:block}
+.stats{max-width:1120px;margin:35px auto;padding:0 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.stat{background:#fff;padding:22px;border-radius:16px;border:1px solid #e6ebf3}.stat b{font-size:28px;color:var(--blue);display:block}.stat small{color:#68758c}
+.section{max-width:1120px;margin:55px auto;padding:0 20px}.sectionHead{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px}.section h2{margin:0;font-size:28px}.sectionHead p{color:#69758a;margin:6px 0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid #e3e9f1;border-radius:17px;padding:20px;transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #153a7112}.icon{width:46px;height:46px;border-radius:13px;background:#eaf3ff;color:var(--blue);display:grid;place-items:center;font-size:23px}.card h3{margin:14px 0 6px}.card p{color:#6b768b;line-height:1.7;font-size:14px}.progress{height:7px;background:#e7edf5;border-radius:20px;overflow:hidden}.progress i{display:block;height:100%;background:var(--blue)}
+
+.pageHead{padding:45px 7%;background:linear-gradient(120deg,#0d1e43,#155bcf);color:#fff}.pageHead h1{margin:0 0 8px}.pageHead p{opacity:.85}.toolbar{display:flex;gap:10px;margin:25px 0;flex-wrap:wrap}.search{flex:1;min-width:220px;padding:12px 15px;border:1px solid #d9e1ed;border-radius:11px;font-family:inherit}
+.lessonGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.lesson{background:#fff;border:1px solid #e3e9f1;border-radius:15px;padding:17px;cursor:pointer}.lesson:hover{border-color:#9fc1fa}.lesson .num{color:var(--blue);font-weight:800}.lesson h3{font-size:16px}.lesson small{color:#778299}
+.quizBox,.certBox,.accountBox,.helpBox{background:#fff;border:1px solid #e2e8f1;border-radius:18px;padding:28px}.quizQ{font-size:20px;font-weight:700}.option{display:block;padding:13px;margin:9px 0;border:1px solid #dce3ee;border-radius:10px;cursor:pointer}.option:hover{background:#f1f6ff}.cert{border:10px double #d6ad52;padding:45px;text-align:center;background:linear-gradient(135deg,#fff,#fffaf0);border-radius:8px}.cert .kh{font-family:'Battambang';font-size:18px}.cert h2{font-size:30px;color:#8b651d}.cert .name{font-size:30px;font-weight:800;margin:20px}.qr{width:100px;height:100px;margin:20px auto;background:repeating-linear-gradient(45deg,#111 0 4px,#fff 4px 8px);display:grid;place-items:center;font-size:11px;color:#fff}
+footer{margin-top:70px;background:#081734;color:#cbd5e7;padding:35px 7%;text-align:center}footer b{color:#fff}
+.modal{position:fixed;inset:0;background:#07142caa;display:none;align-items:center;justify-content:center;z-index:50;padding:20px}.modal.show{display:flex}.modalBox{background:#fff;max-width:520px;width:100%;border-radius:18px;padding:26px}.close{float:right;border:0;background:#eef2f8;border-radius:8px;padding:7px;cursor:pointer}
+@media(max-width:900px){.links{display:none}.heroGrid{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.lessonGrid{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.hero h1{font-size:31px}.stats,.cards,.lessonGrid{grid-template-columns:1fr}.navBtns .outline{display:none}.hero{padding:40px 5%}.pageHead{padding:35px 5%}.section{margin:35px auto}}
+</style>
+</head>
+<body>
+<div class="top"><b>ព្រះរាជាណាចក្រកម្ពុជា</b><span>ជាតិ សាសនា ព្រះមហាក្សត្រ</span></div>
+
+<nav>
+  <div class="logo" onclick="showPage('home')"><div class="logoIcon">⌘</div><span>ប្រព័ន្ធសិក្សាកុំព្យូទ័រ</span></div>
+  <div class="links">
+    <button data-page="home" class="active">ទំព័រដើម</button>
+    <button data-page="lessons">មេរៀន</button>
+    <button data-page="videos">វីដេអូ</button>
+    <button data-page="quiz">ប្រឡង</button>
+    <button data-page="certificate">វិញ្ញាបនប័ត្រ</button>
+    <button data-page="account">គណនី</button>
+    <button data-page="help">ជំនួយ</button>
+  </div>
+  <div class="navBtns"><button class="btn outline" onclick="openModal('login')">ចូលប្រើ</button><button class="btn primary" onclick="openModal('register')">ចុះឈ្មោះ</button></div>
+</nav>
+
+<main>
+<section id="home" class="page active">
+<div class="hero"><div class="heroGrid">
+<div><span class="tag">🎓 E-Learning Platform</span><h1>រៀនកុំព្យូទ័រ<br><span>គ្រប់ពេល គ្រប់ទីកន្លែង</span></h1><p>ប្រព័ន្ធសិក្សាឌីជីថលសម្រាប់អ្នកចាប់ផ្តើម រហូតដល់កម្រិតជំនាញ។ មានមេរៀន ១០០ ជំពូក និង ២,០០០ មេរៀន ជាមួយវីដេអូ តេស្ត និងវិញ្ញាបនប័ត្រ។</p><div class="actions"><button class="btn primary" onclick="showPage('lessons')">ចាប់ផ្តើមសិក្សា →</button><button class="btn outline" onclick="showPage('videos')">▶️ មើលវីដេអូ</button></div></div>
+<div class="dashboardCard"><div class="screen"><div class="screenTop"><b>📊 វឌ្ឍនភាពការសិក្សា</b><span>72%</span></div><div class="bar"><i></i></div><div class="miniGrid"><div class="mini"><b>100</b><small>ជំពូក</small></div><div class="mini"><b>2,000</b><small>មេរៀន</small></div><div class="mini"><b>24</b><small>ប្រឡង</small></div></div><p style="color:#b9c9e7">⭐️ បន្តពីមេរៀនចុងក្រោយ: Microsoft Excel Basics</p></div></div>
+</div></div>
+<div class="stats"><div class="stat"><b>100</b><small>ជំពូកសិក្សា</small></div><div class="stat"><b>2,000</b><small>មេរៀន</small></div><div class="stat"><b>100%</b><small>Responsive</small></div><div class="stat"><b>🏆</b><small>វិញ្ញាបនប័ត្រ</small></div></div>
+<div class="section"><div class="sectionHead"><div><h2>ប្រភេទមេរៀនពេញនិយម</h2><p>ជ្រើសរើសជំនាញដែលអ្នកចង់រៀន</p></div><button class="btn outline" onclick="showPage('lessons')">មើលទាំងអស់</button></div>
+<div class="cards"><div class="card" onclick="showPage('lessons')"><div class="icon">💻</div><h3>Computer Basics</h3><p>ស្គាល់ផ្នែក Hardware, Software និងការប្រើប្រាស់កុំព្យូទ័រមូលដ្ឋាន</p></div><div class="card" onclick="showPage('lessons')"><div class="icon">📊</div><h3>Microsoft Office</h3><p>រៀន Word, Excel, PowerPoint ពីមូលដ្ឋានដល់កម្រិតខ្ពស់</p></div><div class="card" onclick="showPage('lessons')"><div class="icon">🌐</div><h3>Internet & Digital</h3><p>សុវត្ថិភាពអ៊ីនធឺណិត Email Cloud និងជំនាញឌីជីថល</p></div></div></div>
+</section>
+
+<section id="lessons" class="page"><div class="pageHead"><h1>📚 មេរៀន</h1><p>១០០ ជំពូក · ២,០០០ មេរៀន</p></div><div class="section"><div class="toolbar"><input class="search" id="lessonSearch" placeholder="🔎 ស្វែងរកមេរៀន..." oninput="filterLessons()"><button class="btn primary">គ្រប់កម្រិត ▾</button></div><div class="lessonGrid" id="lessonGrid"></div></div></section>
+
+<section id="videos" class="page"><div class="pageHead"><h1>🎬 វីដេអូមេរៀន</h1><p>រៀនតាមវីដេអូជាជំហានៗ</p></div><div class="section"><div class="cards" id="videoCards"></div></div></section>
+
+<section id="quiz" class="page"><div class="pageHead"><h1>📝 Quiz & Exam</h1><p>សាកល្បងចំណេះដឹង និងទទួលលទ្ធផលភ្លាមៗ</p></div><div class="section"><div class="quizBox"><div class="quizQ">សំណួរ 1: តើ CPU មានតួនាទីសំខាន់អ្វី?</div><label class="option"><input type="radio" name="q" value="a"> រក្សាទុកឯកសារអចិន្ត្រៃយ៍</label><label class="option"><input type="radio" name="q" value="b"> ដំណើរការព័ត៌មាន និងបញ្ជា</label><label class="option"><input type="radio" name="q" value="c"> បង្ហាញរូបភាព</label><button class="btn primary" onclick="checkQuiz()">ដាក់ចម្លើយ ✓</button><p id="quizResult"></p></div></div></section>
+
+<section id="certificate" class="page"><div class="pageHead"><h1>🏆 វិញ្ញាបនប័ត្រ</h1><p>វិញ្ញាបនប័ត្រឌីជីថលដែលអាចផ្ទៀងផ្ទាត់តាម QR Code</p></div><div class="section"><div class="cert"><div class="kh">ព្រះរាជាណាចក្រកម្ពុជា</div><div class="kh">ជាតិ សាសនា ព្រះមហាក្សត្រ</div><h2>CERTIFICATE OF COMPLETION</h2><p>វិញ្ញាបនប័ត្របញ្ជាក់ថា</p><div class="name">ឈ្មោះ សិស្សគំរូ</div><p>បានបញ្ចប់វគ្គសិក្សា <b>Computer Learning System</b></p><p>លេខវិញ្ញាបនប័ត្រ: CLS-2026-00128</p><p>កាលបរិច្ឆេទ: 04 October 2026</p><div class="qr">QR<br>VERIFY</div><button class="btn gold" onclick="alert('Demo: ការទាញយក PDF នឹងភ្ជាប់ជាមួយ Backend នៅពេលដាក់ប្រើប្រាស់ពិតប្រាកដ។')">⬇️ ទាញយក Certificate</button><button class="btn outline" onclick="openModal('verify')">🔍 ផ្ទៀងផ្ទាត់ QR</button></div></div></section>
+
+<section id="account" class="page"><div class="pageHead"><h1>👤 គណនីអ្នកសិក្សា</h1><p>គ្រប់គ្រងព័ត៌មាន និងវឌ្ឍនភាពរបស់អ្នក</p></div><div class="section"><div class="accountBox"><h2>សិស្សគំរូ</h2><p>📧 student@example.com</p><p>📚 បានបញ្ចប់: 36 / 100 ជំពូក</p><div class="progress"><i style="width:36%"></i></div><br><button class="btn primary" onclick="showPage('lessons')">បន្តការសិក្សា</button></div></div></section>
+
+<section id="help" class="page"><div class="pageHead"><h1>❓ ជំនួយ & FAQ</h1><p>សំណួរដែលសួរញឹកញាប់</p></div><div class="section"><div class="helpBox"><h3>តើខ្ញុំអាចចុះឈ្មោះបានដោយរបៀបណា?</h3><p>ចុចប៊ូតុង “ចុះឈ្មោះ” នៅផ្នែកខាងលើ រួចបំពេញព័ត៌មានរបស់អ្នក។</p><hr><h3>តើវិញ្ញាបនប័ត្រមាន QR Code ដែរឬទេ?</h3><p>មាន។ QR Code អាចប្រើសម្រាប់បើកទំព័រផ្ទៀងផ្ទាត់ព័ត៌មានវិញ្ញាបនប័ត្រ។</p><hr><h3>តើអាចរៀនតាមទូរស័ព្ទបានទេ?</h3><p>បាន។ វេបសាយនេះរចនា Responsive សម្រាប់ទូរស័ព្ទ Tablet និង Computer។</p></div></div></section>
+</main>
+
+<footer><b>ប្រព័ន្ធសិក្សាកុំព្យូទ័រ</b><br>Computer Learning System · E-Learning Platform<br><small>© 2026 All Rights Reserved</small></footer>
+
+<div class="modal" id="modal"><div class="modalBox"><button class="close" onclick="closeModal()">✕</button><div id="modalContent"></div></div></div>
+
+<script>
+const lessonNames=['មូលដ្ឋានកុំព្យូទ័រ','Hardware និង Software','Windows Fundamentals','ការគ្រប់គ្រង Files','Keyboard & Mouse','Microsoft Word','Microsoft Excel','Microsoft PowerPoint','Internet Basics','Email & Communication','Cyber Security','Cloud Computing'];
+const grid=document.getElementById('lessonGrid'); const videos=document.getElementById('videoCards');
+function renderLessons(list=lessonNames){grid.innerHTML=list.map((x,i)=><div class="lesson" onclick="lessonOpen('${x}')"><div class="num">ជំពូក ${String(i+1).padStart(2,'0')}</div><h3>${x}</h3><small>20 មេរៀន · 🕒 4 ម៉ោង</small><div class="progress" style="margin-top:13px"><i style="width:${[70,55,42,30,20][i%5]}%"></i></div></div>).join('')}
+function renderVideos(){videos.innerHTML=['Computer Basics','Microsoft Word','Microsoft Excel','PowerPoint','Internet & Email','Cyber Security'].map((x,i)=><div class="card" onclick="alert('Demo Video: ${x}')"><div style="height:145px;border-radius:13px;background:linear-gradient(135deg,#0b1c42,#1871df);display:grid;place-items:center;color:#fff;font-size:45px">▶️</div><h3>${x}</h3><p>វីដេអូមេរៀន · 15:30 នាទី</p></div>).join('')}
+function showPage(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.links button').forEach(x=>x.classList.toggle('active',x.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.links button').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+function filterLessons(){let q=document.getElementById('lessonSearch').value.toLowerCase();renderLessons(lessonNames.filter(x=>x.toLowerCase().includes(q)))}
+function lessonOpen(x){openModal('lesson',x)}
+function openModal(type,data=''){let c='';if(type==='login')c='<h2>🔐 ចូលប្រើប្រាស់</h2><input class="search" placeholder="អ៊ីមែល"><br><br><input class="search" placeholder="ពាក្យសម្ងាត់" type="password"><br><br><button class="btn primary" onclick="closeModal()">ចូលប្រើ</button>';if(type==='register')c='<h2>📝 ចុះឈ្មោះអ្នកសិក្សា</h2><input class="search" placeholder="ឈ្មោះពេញ"><br><br><input class="search" placeholder="អ៊ីមែល"><br><br><input class="search" placeholder="ពាក្យសម្ងាត់" type="password"><br><br><button class="btn primary" onclick="closeModal()">បង្កើតគណនី</button>';if(type==='lesson')c=<h2>📘 ${data}</h2><p>ជំពូកនេះមានមេរៀនចំនួន 20។</p><button class="btn primary" onclick="closeModal()">ចាប់ផ្តើមមេរៀន</button>;if(type==='verify')c='<h2>🔍 QR Verification</h2><p>Demo: បញ្ចូលលេខវិញ្ញាបនប័ត្រ</p><input class="search" value="CLS-2026-00128"><br><br><button class="btn primary" onclick="alert(\'វិញ្ញាបនប័ត្រត្រឹមត្រូវ ✓\')">ផ្ទៀងផ្ទាត់</button>';document.getElementById('modalContent').innerHTML=c;document.getElementById('modal').classList.add('show')}
+
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function checkQuiz(){let v=document.querySelector('input[name=q]:checked');document.getElementById('quizResult').innerHTML=v&&v.value==='b'?'<b style="color:green">✓ ត្រឹមត្រូវ! CPU ដំណើរការព័ត៌មាន និងបញ្ជា។</b>':'<b style="color:#d33">✗ មិនត្រឹមត្រូវ។ សូមសាកល្បងម្តងទៀត។</b>'}
+renderLessons();renderVideos();
+</script>
+</body>
+</html>
